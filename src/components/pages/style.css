@@ -1,0 +1,51 @@
+body{
+    /* background-image: url('bgone.png'); */
+    /* background-repeat: no-repeat, repeat;
+    height: 100%;
+    background-position: center; 
+    background-repeat: no-repeat; 
+    background-size: cover;  */
+    /* background: #bdc3c7;  fallback for old browsers */
+    /* background: -webkit-linear-gradient(to right, #2c3e50, #bdc3c7);  Chrome 10-25, Safari 5.1-6 */
+    /* background: linear-gradient(to right, #2c3e50, #bdc3c7); W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.form{
+    /* background-image: url('bgone.png'); */
+    background-color: rgb(221, 221, 221);
+    opacity: 0.5;
+    border-radius: 5px;
+    width: 550px;
+    margin: 20px auto;
+    padding: 20px;
+    /* height: 600px; */
+}
+
+.form-body{
+    text-align: left;
+    padding: 20px 10px; 
+}
+
+.form-body > *{
+    padding: 5px;
+}
+
+.form__label{
+    width: 40%;
+    background-color: aliceblue;
+    padding-left: 18px;
+    border-left: 2px solid;
+
+}
+
+.form_input{
+    width: 60%;
+}
+
+.footer{
+    text-align: center;
+}
+input{
+    border-radius: 5px;
+    border: outset;
+}

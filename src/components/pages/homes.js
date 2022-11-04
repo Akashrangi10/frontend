@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import Modal from "./Modal";
+// import detailModal from "./detailModal";
+
 import axios from "axios";
 
  class Homes extends Component {
@@ -23,7 +25,7 @@ import axios from "axios";
 
     refreshList = () => {
       axios
-        .get("/api/todos/")
+        .get("http://192.168.1.10:8000/api/todos/")
         
         .then((res) => this.setState({ todoList: res.data }))
         .catch((err) => console.log(err));
@@ -32,25 +34,27 @@ import axios from "axios";
     toggle = () => {
       this.setState({ modal: !this.state.modal });
     };
-
+    toggledetail = () => {
+      this.setState({ detailModal: !this.state.detailModal });
+    };
     handleSubmit = (item) => {
       this.toggle();
       console.log(item);
       if (item.id) {
         axios
-          .put(`/api/todos/${item.id}/`, item)
+          .put(`http://192.168.1.10:8000/api/todos/${item.id}/`, item)
           .then((res) => this.refreshList())
           .catch((err) => console.log("lll",err));
         return;
       }
       axios
-        .post("/api/todos/", item)
+        .post("http://192.168.1.10:8000/api/todos/", item)
         .then((res) => this.refreshList());
     };
 
     handleDelete = (item) => {
       axios
-        .delete(`/api/todos/${item.id}/`)
+        .delete(`http://192.168.1.10:8000/api/todos/${item.id}/`)
         .then((res) => this.refreshList());
     };
 
@@ -63,6 +67,10 @@ import axios from "axios";
     editItem = (item) => {
       this.setState({ activeItem: item, modal: !this.state.modal });
     };
+
+    detailItem = (item) => {
+      this.setState({ activeItem: item, detailModal: !this.state.detailModal})
+    }
 
     displayCompleted = (status) => {
       if (status) {
@@ -111,6 +119,12 @@ import axios from "axios";
             {item.title}
           </span>
           <span>
+          <button
+              className="btn btn-secondary mr-2"
+              onClick={() => this.detailItem(item)}
+            >
+              Details
+            </button>
             <button
               className="btn btn-secondary mr-2"
               onClick={() => this.editItem(item)}
@@ -158,6 +172,12 @@ import axios from "axios";
               onSave={this.handleSubmit}
             />
           ) : null}
+          {/* {this.state.detailModal ? (
+            <Modal
+              activeItem={this.state.activeItem}
+              toggle={this.toggledetail}
+            />
+          ) : null} */}
         </main>
       );
     }

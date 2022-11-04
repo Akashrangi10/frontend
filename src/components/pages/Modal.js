@@ -40,36 +40,25 @@ export default class CustomModal extends Component {
         <ModalBody>
           <Form>
             <FormGroup>
-              <Label for="users-username">username</Label>
+              <Label for="todo-title">Title</Label>
               <Input
                 type="text"
-                id="users-username"
-                name="username"
-                value={this.state.activeItem.username}
+                id="todo-title"
+                name="title"
+                value={this.state.activeItem.title}
                 onChange={this.handleChange}
                 placeholder="Enter Todo Title"
               />
             </FormGroup>
             <FormGroup>
-              <Label for="users-first_name">first name</Label>
+              <Label for="todo-description">Description</Label>
               <Input
                 type="text"
-                id="users-first_name"
-                name="first_name"
-                value={this.state.activeItem.first_name}
+                id="todo-description"
+                name="description"
+                value={this.state.activeItem.description}
                 onChange={this.handleChange}
-                placeholder="Enter your first name"
-              />
-            </FormGroup>
-            <FormGroup>
-              <Label for="users-last_name">Last name</Label>
-              <Input
-                type="text"
-                id="users-last_name"
-                name="last_name"
-                value={this.state.activeItem.last_name}
-                onChange={this.handleChange}
-                placeholder="Enter your first name"
+                placeholder="Enter Todo description"
               />
             </FormGroup>
             <FormGroup check>
